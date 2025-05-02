@@ -1,0 +1,1077 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);display: flex;
+    height: 100vh;
+}
+
+/* Form container styles */
+.formContainer h1 {
+  font-size: 30px;
+  font-weight: 600px;
+  margin: 20px 0; /* Reduced from default margins */
+  color: #333;
+  text-align: center;
+}
+
+/* Additional spacing adjustments */
+.formContainer.signUp form {
+  padding-bottom: 32px; /* Reduced top padding */
+}
+
+
+/* Container for password input and toggle button */
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.passwordWrapper input {
+  width: 100%;
+}
+
+/* Style for the eye button */
+.togglePassword {
+  position: absolute;
+  right: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 24px;
+}
+
+/* Password validation styles */
+.passwordRequirements {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 5px 5px;
+  margin: 0 0 10px 0;
+  font-size: 11px !important; /* Forcing 9px as requested */
+}
+
+.requirementsTitle {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--text-primary);
+}
+
+.passwordRequirements ul {
+  list-style-type: none;
+  padding-left: 15px;
+  margin: 0;
+}
+
+.passwordRequirements li {
+  padding: 3px 0 0 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.passwordRequirements li::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.valid {
+  color: #4CAF50;
+}
+
+.valid::before {
+  background-color: #4CAF50;
+}
+
+.invalid {
+  color: #f44336;
+}
+
+.invalid::before {
+  background-color: #f44336;
+}
+
+/* Error input styling */
+.errorInput {
+  border-color: #f44336 !important;
+}
+
+.errorText {
+  text-align: start;
+  color: #f44336;
+  font-size: 12px;
+  margin: 2px 0 5px 0;
+  padding-left: 5px;
+}
+
+.inputGroup {
+  position: relative;
+  width: 100%;
+}
+/* Button disabled state */
+button[type="submit"]:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Password strength indicator */
+.passwordStrength {
+  display: flex;
+  margin-top: 5px;
+  width: 100%;
+  height: 4px;
+}
+
+.passwordStrength div {
+  flex: 1;
+  margin: 0 2px;
+  height: 100%;
+  border-radius: 2px;
+  background-color: #e0e0e0;
+}
+
+.passwordStrength div.active {
+  background-color: var(--strength-color, #f44336);
+}
+
+.weak {
+  --strength-color: #f44336;
+}
+
+.medium {
+  --strength-color: #FF9800;
+}
+
+.strong {
+  --strength-color: #4CAF50;
+}
+
+.passwordStrengthText {
+  text-align: right;
+  font-size: 12px;
+  margin-top: 5px;
+  color: var(--strength-color, #757575);
+}
+
+/* Mobile responsiveness improvements */
+@media screen and (max-width: 768px) {
+  .container {
+    min-height: 600px;
+  }
+
+  .formContainer {
+    width: 100%;
+  }
+
+  .toggleContainer {
+    width: 100%;
+    left: 0;
+    height: 40%;
+    top: auto;
+    bottom: 0;
+    border-radius: 0;
+  }
+
+  .toggle {
+    width: 100%;
+    left: 0;
+  }
+
+  .togglePanel {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .passwordRequirements {
+    font-size: 11px;
+  }
+}
+
+.passwordPopup {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  background-color: var(--bg-primary);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  margin-top: 5px;
+  left: 0;
+  top: 100%;
+}
+
+.valid {
+  color: #4CAF50;
+}
+
+.valid::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+}
+
+.invalid {
+  color: #F44336;
+}
+
+.invalid::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+}
+
+.passwordSuccess {
+  padding: 0;
+  background-color: none;
+  border-radius: 4px;
+}
+
+/* Add these styles to LoginRegister.module.css */
+.passwordSuccessSimple {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.successTextSimple {
+  color: #4CAF50;
+  font-size: 14px;
+  margin: 0;
+  padding-left: 5px;
+}
+
+/* Add to your CSS file */
+.successText {
+  text-align: start;
+  color: #4CAF50;
+  font-size: 14px;
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
+.eyeIcon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+.togglePassword:hover .eyeIcon {
+  opacity: 1;
+}
+
+/* Admin Button Styles */
+.adminBtn0 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px 6px;
+  border-radius: 24px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.adminBtn0:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.adminIcon0 {
+  filter: invert(48%) sepia(98%) saturate(668%) hue-rotate(87deg) brightness(94%) contrast(87%);
+  width: 35px;
+  height: 35px;
+  background: none;
+  object-fit: contain;
+}
+
+.adminLabel {
+  color: var(--text-primary);
+  font-size: 22px;
+}
+
+.container{
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 780px;
+    max-width: 100%;
+    min-height: 500px;
+}
+
+.container p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 5px 0;
+}
+
+.container span{
+    font-size: 12px;
+}
+
+.container a{
+    color: #35b657;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
+
+.container a:hover{
+    text-decoration: underline;
+}
+
+.container button:not(.googleBtn, .adminBtn0, .togglePassword ) {
+    background-color: #41AB5D;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.container button.hidden {
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.container form {
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+  width: 100%;
+}
+
+.container input {
+    margin-top: 10px;
+    border: var(--result-panel-border);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    margin: 5px 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    width: 100%;
+    height: 40px;
+    outline: none;
+}
+
+input::placeholder {
+  color: var(--text-primary);
+  opacity: 0.6  ;
+}
+
+
+.formContainer {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.signIn {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.container.active .signIn {
+  transform: translateX(100%);
+}
+
+.signUp {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .signUp {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6s;
+}
+
+@keyframes move {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+
+.toggleContainer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2), 
+    -5px 0 15px rgba(0, 0, 0, 0.2); /* Added side shadows */
+}
+
+.container.active .toggleContainer {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+    background-color: #41AB5D;
+    height: 100%;
+    background: linear-gradient(to right, var(--button-primary), var(--button-primary));
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+  
+
+.container.active .toggle {
+  transform: translateX(50%);
+}
+
+.togglePanel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+
+.toggleLeft {
+  transform: translateX(-200%);
+}
+
+.container.active .toggleLeft {
+  transform: translateX(0);
+}
+
+.toggleRight {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.active .toggleRight {
+  transform: translateX(200%);
+}
+
+
+.googleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 35px;
+  width: auto;
+  max-width: 150px;
+}
+
+.googleBtn:hover {
+  background-color: var(--googleBtn-hover);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.googleIcon {
+  width: 35px;
+  height: 35px;
+}
+
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 0.75em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 0.75em;
+}
+
+.divider span {
+  font-size: 12px;
+  color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+
+/* Make the forgot password container an overlay */
+.forgotPasswordContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 450px;
+  padding: 30px;
+  background-color: var(--bg-primary);
+  border-radius: 15px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  z-index: 2000; /* Higher than any other elements */
+  color: var(--text-primary);
+}
+
+/* Better heading styling */
+.forgotPasswordContainer h1 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Improved paragraph styling */
+.forgotPasswordContainer p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Match button styling with the main form */
+.forgotPasswordContainer button:not(.togglePassword, .backButton, .resendBtn) {
+  background-color: #41AB5D;
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 50%;
+  transition: all 0.3s ease;
+}
+
+.forgotPasswordContainer button:active {
+  transform: scale(0.98);
+}
+
+/* Better back button styling */
+.backButton {
+  position: absolute !important;
+  top: 15px;
+  right: 15px;
+  background: none !important;
+  border: none !important;
+  padding: 8px !important;
+  cursor: pointer;
+  width: auto !important;
+}
+
+.backIcon {
+  filter: var(--close-filter);
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+.backButton:hover .backIcon {
+  opacity: 1;
+}
+
+/* Improved OTP input styling */
+.otpInput {
+  text-align: center;
+  letter-spacing: 0.5em;
+  font-size: 1.5em;
+  font-weight: 600;
+  padding-left: 0.5em !important; /* Account for letter spacing */
+  height: 50px !important;
+}
+
+/* Better OTP message styling */
+.otpMessage {
+  background-color: none;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 5px 0;
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--text-primary);
+}
+
+/* Improved resend button */
+.resendBtn {
+  background: none !important;
+  border: none !important;
+  color: #41AB5D !important;
+  text-decoration: underline;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding: 5px !important;
+  margin-top: 10px !important;
+  width: auto !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resendBtn:hover {
+  color: #348a4a !important;
+}
+
+/* Make form inputs consistent */
+.forgotPasswordContainer input {
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: var(--result-panel-border);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+}
+
+
+/* Success message styling */
+.successMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.successIcon {
+  height: 35px;
+  width: 35px;
+  margin-bottom: 10px;
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.successMessage h2 {
+  color: #41AB5D;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.successMessage p {
+  margin-bottom: 5px;
+}
+
+.redirectMessage {
+  font-style: italic;
+  font-size: 0.9em !important;
+  opacity: 0.7 !important;
+  margin-top: 15px !important;
+}
+
+
+/* Semi-transparent overlay behind the popup */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1999; /* Just below the popup */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.roleSelect {
+  color: var(--text-primary);
+  height: 40px;
+  width: 100%;
+  padding: 12px 15px;
+  padding-right: 40px; /* Make room for the custom arrow */
+  border: 1px solid var(--result-panel-border);
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: var(--input-bg);
+  appearance: none; /* Hide the default arrow */
+  cursor: pointer;
+}
+
+.selectWrapper {
+  margin-top: 8px;
+  position: relative;
+  width: 100%;
+}
+
+.dropdownIcon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* So it doesn't interfere with select clicks */
+}
+
+.dropdownIcon img {
+  width: 16px;
+  height: 16px;
+  filter: var(--dropdown-arrow-filter); /* Make the icon white */
+}
+
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light gray */
+  border-top: 4px solid #348a4a; /* Blue or whatever your accent color is */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Add these styles to your LoginRegister.module.css file */
+
+.errorMessage {
+  color: #ff3333;
+  font-size: 0.85rem;
+  text-align: left;
+  width: 100%;
+  padding-left: 5px;
+}
+
+.successPopupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.successPopup {
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  width: 320px;
+  color: #4CAF50;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.successHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.successIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+.successButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.successButton:hover {
+  background-color: #3e8e41;
+}
+
+/* Add these styles to your LoginRegister.module.css file */
+
+/* OTP Timer styling */
+.otpTimer {
+  font-size: 0.85rem;
+  margin: 8px 0;
+  color: #ff9800;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Popup message styling */
+.popupMessage {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  z-index: 2100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  animation: fadeInOut 4s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+.success {
+  background-color: #4CAF50;
+  border-left: 5px solid #388E3C;
+}
+
+.error {
+  background-color: #f44336;
+  border-left: 5px solid #d32f2f;
+}
+
+.info {
+  background-color: #2196F3;
+  border-left: 5px solid #1976D2;
+}
+
+/* Password strength indicator improvements */
+.passwordStrength {
+  display: flex;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  width: 100%;
+  height: 4px;
+  gap: 3px;
+}
+
+.passwordStrength div {
+  flex: 1;
+  height: 100%;
+  border-radius: 2px;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s ease;
+}
+
+.passwordStrength div.active {
+  background-color: var(--strength-color, #f44336);
+}
+
+.weak {
+  --strength-color: #f44336;
+}
+
+.medium {
+  --strength-color: #FF9800;
+}
+
+.strong {
+  --strength-color: #4CAF50;
+}
+
+.passwordStrengthText {
+  text-align: right;
+  font-size: 12px;
+  margin-top: 3px;
+  color: var(--strength-color, #757575);
+}
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enhance OTP input styling */
+.otpInput {
+  text-align: center;
+  letter-spacing: 0.5em;
+  font-size: 1.5em !important;
+  font-weight: 600;
+  padding-left: 0.5em !important; /* Account for letter spacing */
+  height: 50px !important;
+}
+
+/* Center the loading spinner */
+button .loader {
+  margin: 0 auto;
+}
+
+/* Additional improvements */
+.forgotPasswordContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.forgotPasswordContainer button:not(.togglePassword, .backButton, .resendBtn) {
+  margin: 20px auto 0;
+  min-width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+/* Disabled button styling */
+.forgotPasswordContainer button:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.passwordRequirements {
+  margin-top: 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.passwordRequirements p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.passwordRequirements ul {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.passwordRequirements li {
+  margin: 2px 0;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+/* Password Strength Bar */
+.strengthBarContainer {
+  margin-top: 10px;
+}
+
+.strengthBar {
+  height: 8px;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.weak {
+  background-color: red;
+  width: 30%;
+}
+
+.medium {
+  background-color: orange;
+  width: 60%;
+}
+
+.strong {
+  background-color: green;
+  width: 100%;
+}

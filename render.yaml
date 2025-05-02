@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: gis-chatbot-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:8000
+    plan: free
+    autoDeploy: true
+    scaling:
+      minInstances: 1
+      maxInstances: 1
+
+  - type: web
+    name: ecourban
+    env: node
+    buildCommand: npm install --production=false && npm run build
+    startCommand: node index.js
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://tagleseanandrei:QsIO8e1RvPqDDpwS@cluster0.tphbs0m.mongodb.net/test?retryWrites=true&w=majority
+      - key: NODE_ENV
+        value: production
